@@ -1,0 +1,44 @@
+{% if modal_flag == 3 %}
+
+<div class="modal fade" id="confModalToggle3" aria-hidden="true" aria-labelledby="confModalToggleLabel3" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="confModalToggleLabel3">
+            Success
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          {{ no_entry }} Entries Deleted
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% elif modal_flag == 4 %}
+
+<div class="modal fade" id="confModalToggle4" aria-hidden="true" aria-labelledby="confModalToggleLabel4" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="confModalToggleLabel4">
+            Failed
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          No Entry Selected 😥
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endif %}

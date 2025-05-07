@@ -1,0 +1,28 @@
+{% include "header.html" %}
+
+  <section id="title" class="gradient-background py-1">
+
+    <div class="container">
+      <div class="row">
+        {% include "master.html" %}
+
+        {% if maint_menu_flag == True %}
+            {% include "maintenance.html" %}
+        {% endif %}
+
+        {% if flag_check == 'DRIVER' %}
+          {% include "driver_details.html" %}
+        {% elif flag_check == 'DELISITE' %}
+          {% include "deli_site.html" %}
+        {% elif flag_check == 'SUPPLIER' %}
+          {% include "supp_info.html" %}
+        {% elif flag_check == 'CLIENT' %}
+          {% include "client_details.html" %}
+        {% endif %}
+
+      </div>
+    </div>
+
+  </section>
+
+{% include "footer.html" %}

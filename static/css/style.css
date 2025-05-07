@@ -1,0 +1,67 @@
+.gradient-background {
+  background: linear-gradient(200deg, #00e5ff, #ff4cb7, #72ef9a);
+  background-size: 180% 180%;
+  animation: gradient-animation 5s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.border-bl {
+   border-style: solid none solid none;
+   border-color: rgb(79 186 254);
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+}
+
+.playwrite-ro-company {
+  font-family: "Playwrite RO", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-table {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+@font-face {
+    font-family: 'Pricedown';
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://raw.githubusercontent.com/infin1tyy/pricedown-font-web/master/pricedown.otf') format('opentype');
+}
+
+.pricedown-font {
+    font-family: 'Pricedown', sans-serif;
+}
+
+.sticky-title {
+    position: sticky;
+    top: 56px;
+    background-color: white;
+    z-index: 20;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 102px;
+    background-color: white;
+    z-index: 10;
+}

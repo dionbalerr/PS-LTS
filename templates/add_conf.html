@@ -1,0 +1,70 @@
+{% if modal_flag == 1 %}
+
+<div class="modal fade" id="confModalToggle" aria-hidden="true" aria-labelledby="confModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="confModalToggleLabel">
+            Added New Record
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+      {% if flag_check == 'DRIVER' %}
+          {{ flag_check }} {{ driver_no }}
+      {% elif flag_check == 'DELISITE' %}
+          {{ flag_check }} {{ site_no }}
+      {% elif flag_check == 'SUPPLIER' %}
+          {{ flag_check }} {{ supp_no }}
+      {% elif flag_check == 'CLIENT' %}
+          {{ flag_check }} {{ client_no }}
+      {% endif %}
+         Added!
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% elif modal_flag == 2 %}
+
+<div class="modal fade" id="confModalToggle2" aria-hidden="true" aria-labelledby="confModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addconfModalToggleLabel2">
+            Duplicate Record
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Existing
+          {% if flag_check == 'DRIVER' %}
+            {{ flag_check }}: {{ driver_no }}
+          {% elif flag_check == 'DELISITE' %}
+            {{ flag_check }}: {{ site_no }}
+          {% elif flag_check == 'SUPPLIER' %}
+            {{ flag_check }}: {{ supp_no }}
+          {% elif flag_check == 'CLIENT' %}
+            {{ flag_check }}: {{ client_no }}
+        {% endif %}
+        Found...
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endif %}
+
+{% include "del_conf.html" %}
+

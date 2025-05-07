@@ -1,0 +1,51 @@
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-1 my-1 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <span class="mb-3 text-body-secondary">© {{ year }} Ported from dbase-PJ</span>
+        </div>
+    </footer>
+
+</body>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+
+            // Format: dd-mm-yyyy
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // JS months are 0-based
+            const year = String(now.getFullYear());
+            const formattedDate = `${day}-${month}-${year}`;
+
+            // Time: hh:mm:ss
+            const timeString = now.toLocaleTimeString();
+
+            document.getElementById("date").textContent = `${formattedDate}`;
+            document.getElementById("clock").textContent = `${timeString}`;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // run immediately
+    </script>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        {% if modal_flag == 1 %}
+          new bootstrap.Modal(document.getElementById('confModalToggle')).show();
+        {% elif modal_flag == 2 %}
+          new bootstrap.Modal(document.getElementById('confModalToggle2')).show();
+        {% elif modal_flag == 3 %}
+          new bootstrap.Modal(document.getElementById('confModalToggle3')).show();
+        {% elif modal_flag == 4 %}
+          new bootstrap.Modal(document.getElementById('confModalToggle4')).show();
+        {% elif modal_flag == 5 %}
+          new bootstrap.Modal(document.getElementById('editModal')).show();
+        {% elif modal_flag == 6 %}
+          new bootstrap.Modal(document.getElementById('editModal')).show();
+        {% elif modal_flag == 7 %}
+          new bootstrap.Modal(document.getElementById('editModal')).show();
+
+        {% endif %}
+      });
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,9 @@
+<div class="col-4 card mx-1 py-2">
+    <div class="card-header h3">Maintenance</div>
+    <ol class="list-group list-group-numbered">
+        <a class="list-group-item list-group-item-action" href="{{ url_for('details_menu', flag_check='DRIVER') }}">Driver Details</a>
+        <a class="list-group-item list-group-item-action" href="{{ url_for('details_menu', flag_check='DELISITE') }}">Delivery Site</a>
+        <a class="list-group-item list-group-item-action" href="{{ url_for('details_menu', flag_check='SUPPLIER') }}">Suppliers' Info</a>
+        <a class="list-group-item list-group-item-action" href="{{ url_for('details_menu', flag_check='CLIENT') }}">Client Details</a>
+    </ol>
+</div>

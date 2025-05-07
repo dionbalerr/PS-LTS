@@ -1,0 +1,266 @@
+{% if flag_check == 'DRIVER' %}
+
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addModalLabel">
+            Add New Driver
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form action="{{ url_for('handle_data', flag_check=flag_check) }}" method="post">
+          <div class="container">
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="driver-no" class="col-form-label">Driver NO:</label>
+                <input type="text" class="form-control" id="driver-no" name="DRIVER_NO" required autofocus>
+              </div>
+              <div class="col-md-6">
+                <label for="name-text" class="col-form-label">Name:</label>
+                <textarea class="form-control" id="name-text" name="NAME"></textarea>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="ic-no" class="col-form-label">IC NO:</label>
+                <input type="text" class="form-control" id="ic-no" name="IC_NO">
+              </div>
+              <div class="col-md-6">
+                <label for="lorry-no" class="col-form-label">Lorry NO:</label>
+                <input type="text" class="form-control" id="lorry-no" name="LORRY_NO">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="comission-text" class="col-form-label">Comission:</label>
+                <input type="text" class="form-control" id="comission-text" name="COMISSION">
+              </div>
+              <div class="col-md-4">
+                <label for="basic-text" class="col-form-label">Basic:</label>
+                <input type="text" class="form-control" id="basic-text" name="BASIC">
+              </div>
+              <div class="col-md-4">
+                <label for="roadtax-text" class="col-form-label">Road Tax:</label>
+                <input type="text" class="form-control" id="roadtax-text" name="ROAD_TAX">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <label for="inspection-text" class="col-form-label">Inspection:</label>
+                <textarea class="form-control" id="inspection-text" name="INSPECTION"></textarea>
+              </div>
+            </div>
+            </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" value="submit">Add Driver</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% elif flag_check == 'DELISITE' %}
+
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addModalLabel">
+            Add New Delivery Site
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form action="{{ url_for('handle_data', flag_check=flag_check) }}" method="post">
+          <div class="container">
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="site-no" class="col-form-label">Site NO:</label>
+                <input type="text" class="form-control" id="site-no" name="SITE_NO" required autofocus>
+              </div>
+              <div class="col-md-6">
+                <label for="goods-text" class="col-form-label">Goods:</label>
+                <textarea class="form-control" id="goods-text" name="GOODS"></textarea>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <label for="originate-text" class="col-form-label">Originate:</label>
+                <textarea class="form-control" id="originate-text" name="ORIGINATE"></textarea>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <label for="destinate-text" class="col-form-label">Destinate:</label>
+                <textarea class="form-control" id="destinate-text" name="DESTINATE"></textarea>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="gross-price" class="col-form-label">Gross Price:</label>
+                <input type="number" class="form-control" id="gross-price" name="GROSS_PRC" min="0" step="0.01" placeholder="0.00">
+              </div>
+              <div class="col-md-4">
+                <label for="net-price" class="col-form-label">Net Price:</label>
+                <input type="number" class="form-control" id="net-price" name="NET_PRC" min="0" step="0.01" placeholder="0.00">
+              </div>
+              <div class="col-md-4">
+                <label for="client-no" class="col-form-label">Client NO:</label>
+                <input type="text" class="form-control" id="client-no" name="CLIENT_NO">
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" value="submit" data-bs-target="addModalToggle2">Add Delivery Site</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% elif flag_check == 'SUPPLIER' %}
+
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addModalLabel">
+            Add New Supplier Info
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form action="{{ url_for('handle_data', flag_check=flag_check) }}" method="post">
+          <div class="container">
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="supplier-no" class="col-form-label">Supplier NO:</label>
+                <input type="text" class="form-control" id="supplier-no" name="SUPPLIER_NO" required autofocus>
+              </div>
+              <div class="col-md-6">
+                <label for="name-text" class="col-form-label">Name:</label>
+                <textarea class="form-control" id="name-text" name="NAME"></textarea>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="telephone-text" class="col-form-label">Telephone:</label>
+                <input type="text" class="form-control" id="telephone-text" name="TELEPHONE">
+              </div>
+              <div class="col-md-6">
+                <label for="contact-text" class="col-form-label">Contact:</label>
+                <textarea class="form-control" id="contact-text" name="CONTACT"></textarea>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="goods-text" class="col-form-label">Goods:</label>
+                <input type="text" class="form-control" id="good-text" name="GOODS">
+              </div>
+              <div class="col-md-6">
+                <label for="curr-bal" class="col-form-label">Current Balance:</label>
+                <input type="number" class="form-control" id="curr_bal" name="CURR_BAL" min="0" step="0.01" placeholder="0.00">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <label for="terms-text" class="col-form-label">Terms:</label>
+                <input type="text" class="form-control" id="terms-text" name="TERMS">
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" value="submit" data-bs-target="addModalToggle2">Add Supplier</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% elif flag_check == 'CLIENT' %}
+
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addModalLabel">
+            Add New Client Data
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form action="{{ url_for('handle_data', flag_check=flag_check) }}" method="post">
+          <div class="container">
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="client-no" class="col-form-label">Client NO:</label>
+                <input type="text" class="form-control" id="client-no" name="CLIENT_NO" required autofocus>
+              </div>
+              <div class="col-md-8">
+                <label for="comp-name-text" class="col-form-label">Name of Company:</label>
+                <textarea class="form-control" id="comp-name-text" name="NAME_CO"></textarea>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="contact-text" class="col-form-label">Contact:</label>
+                <textarea class="form-control" id="contact-text" name="CONTACT"></textarea>
+              </div>
+              <div class="col-md-6">
+                <label for="contact-no-text" class="col-form-label">Contact NO:</label>
+                <input type="text" class="form-control" id="contact-no-text" name="CONTACT_NO">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <label for="address-1-text" class="col-form-label">Address 1:</label>
+                <textarea type="text" class="form-control" id="address-1-text" name="ADDRESS_1"></textarea>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <label for="address-2-text" class="col-form-label">Address 2:</label>
+                <textarea type="text" class="form-control" id="address-2-text" name="ADDRESS_2"></textarea>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="postcode-text" class="col-form-label">Postcode:</label>
+                <input type="text" class="form-control" id="postcode-text" name="POSTCODE">
+              </div>
+              <div class="col-md-6">
+                <label for="city-text" class="col-form-label">City:</label>
+                <input type="text" class="form-control" id="city-text" name="CITY">
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" value="submit" data-bs-target="addModalToggle2">Add Client</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+{% include "add_conf.html" %}
