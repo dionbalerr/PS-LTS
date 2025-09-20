@@ -7,18 +7,22 @@ import handle_functions as table
 
 app = Flask(__name__)
 
+
 @app.context_processor
 def inject_current_year():
     return {"year": datetime.now().year}
+
 
 @app.route("/")
 def home():
     return render_template("home.html")
 
+
 @app.route("/maintenance")
 def maint_menu():
     maint_menu_flag = True
     return render_template("home.html", maint_menu_flag=maint_menu_flag)
+
 
 @app.route("/maintenance/<string:flag_check>")
 def details_menu(flag_check):
@@ -55,6 +59,7 @@ def details_listing(num, flag_check):
                                headers=headers,
                                rows=rows,
                                flag_check=flag_check)
+
 
 @app.route("/maintenance/<string:flag_check>/data", methods=['POST'])
 def handle_data(flag_check):
@@ -123,6 +128,7 @@ def handle_data(flag_check):
                                flag_check=flag_check,
                                modal_flag=modal_flag)
 
+
 @app.route("/maintenance/<string:flag_check>/delete", methods=['POST'])
 def delete_data(flag_check):
     data = dict(request.form.lists())
@@ -157,6 +163,7 @@ def delete_data(flag_check):
                                modal_flag=modal_flag,
                                no_entry=no_entry)
 
+
 @app.route("/maintenance/<string:flag_check>/get", methods=['POST'])
 def get_data(flag_check):
     # Gets index of row, searches in get_entry
@@ -184,6 +191,7 @@ def get_data(flag_check):
                                modal_flag=modal_flag,
                                current_row=current_row,
                                row_index=row_index)
+
 
 @app.route("/maintenance/<string:flag_check>/edit/<int:row_index>", methods=['POST'])
 def edit_data(flag_check, row_index):
@@ -215,7 +223,7 @@ def edit_data(flag_check, row_index):
     headers = table.header_val(table.table_sort(filename))
     # print(rows, headers)
 
-    # 6 means EDITTED, 7 means EDIT_ DUPE
+    # 6 means EDITED, 7 means EDIT_ DUPE
     if new_table[1] == 6:
         modal_flag = 6
     elif new_table[1] == 7:
@@ -253,9 +261,9 @@ def edit_data(flag_check, row_index):
                                modal_flag=modal_flag)
 
 
-
 def start_server():
     app.run(debug=True, use_reloader=False)
+
 
 if __name__ == "__main__":
     new_thread = threading.Thread(target=start_server)
